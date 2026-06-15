@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none; /* Запрещаем выделять текст при быстрых кликах */
+}
+
+body {
+    background-color: #1c1f24; /* Темный фон Telegram */
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Запрещаем скроллинг */
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #a1a1a1;
+}
+
+.balance-container {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    font-size: 32px;
+}
+
+.coin-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.clicker-zone {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+#main-coin {
+    width: 250px;
+    height: 250px;
+    cursor: pointer;
+    transition: transform 0.05s; /* Пружинистая анимация */
+    border-radius: 50%;
+    box-shadow: 0 0 50px rgba(0, 255, 136, 0.2);
+}
+
+/* Эффект при нажатии */
+#main-coin:active {
+    transform: scale(0.95);
+}
+
+.energy-container {
+    width: 100%;
+    text-align: left;
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Анимация всплывающих циферок +100 */
+.floating-number {
+    position: absolute;
+    font-size: 24px;
+    font-weight: bold;
+    color: #00ff88;
+    pointer-events: none;
+    animation: floatUp 1s ease-out forwards;
+}
+
+@keyframes floatUp {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-100px); }
+}
